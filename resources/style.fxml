@@ -5,6 +5,7 @@
 <?scenebuilder-classpath-element richtextfx-fat-0.6.10.jar?>
 
 <?import org.fxmisc.richtext.InlineCssTextArea?>
+<?import javafx.geometry.Insets?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
@@ -66,8 +67,9 @@
    </left>
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="-Infinity" prefWidth="-Infinity" BorderPane.alignment="CENTER_RIGHT">
+         <padding><Insets top="0" right="10" bottom="0" left="0"/></padding>
          <children>
-            <Label text="Connected as &lt;Err&gt;" />
+            <Label fx:id="username" text="Connected as &lt;Err&gt;" />
          </children>
       </HBox>
    </bottom>
