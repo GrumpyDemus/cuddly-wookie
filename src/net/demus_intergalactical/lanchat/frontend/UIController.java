@@ -25,7 +25,16 @@ public class UIController {
 			fileList = (ListView<BorderPane>) root.lookup("#filelist");
 			username = (Label) root.lookup("#username");
 
+			chatLog.setWrapText(true);
 			username.setText("Connected as " + System.getProperty("user.name"));
+		});
+	}
+
+	public static void appendToChat(String color, String text) {
+		Platform.runLater(() -> {
+			int currlength = chatLog.getText().length();
+			chatLog.appendText(text);
+			chatLog.setStyle(currlength, currlength + text.length(), "-fx-fill:" + color + ";");
 		});
 	}
 
