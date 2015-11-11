@@ -35,6 +35,7 @@ public class MainFrontEnd extends Application {
 			closeProgram();
 		});
 
+		UIController.init(root);
 		primaryStage.show();
 	}
 
