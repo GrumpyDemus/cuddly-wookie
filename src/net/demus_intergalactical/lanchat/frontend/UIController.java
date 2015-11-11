@@ -1,4 +1,4 @@
-package net.demus_intergalactical.lanchat;
+package net.demus_intergalactical.lanchat.frontend;
 
 import javafx.application.Platform;
 import javafx.scene.Parent;

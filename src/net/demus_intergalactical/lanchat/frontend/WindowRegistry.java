@@ -1,8 +1,9 @@
-package net.demus_intergalactical.lanchat;
+package net.demus_intergalactical.lanchat.frontend;
 
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import net.demus_intergalactical.lanchat.Main;
 
 import java.util.HashMap;
 import java.util.Map;
