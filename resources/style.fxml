@@ -5,72 +5,63 @@
 <?scenebuilder-classpath-element richtextfx-fat-0.6.10.jar?>
 
 <?import org.fxmisc.richtext.InlineCssTextArea?>
-<?import javafx.geometry.Insets?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="580.0" fx:controller="net.demus_intergalactical.lanchat.frontend.Controller" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <tabs>
-                <Tab text="All Chat">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <InlineCssTextArea fx:id="chatlog" editable="false" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                              <TextField fx:id="inputfield" onKeyPressed="#onInputKeyPressed" prefHeight="25.0" prefWidth="297.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="60.0" />
-                              <Button fx:id="inputbtn" onAction="#onInputBtnPressed" mnemonicParsing="false" text="Send" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-              </tabs>
-            </TabPane>
-         </children>
-      </AnchorPane>
-   </center>
-   <left>
-      <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <TitledPane text="Users">
-               <content>
-                  <ListView fx:id="userlist"/>
-               </content>
-            </TitledPane>
-            <TitledPane text="Files">
-               <content>
-                  <ListView fx:id="filelist"/>
-               </content>
-            </TitledPane>
-         </children>
-      </VBox>
-   </left>
-   <bottom>
-      <HBox alignment="CENTER_RIGHT" prefHeight="-Infinity" prefWidth="-Infinity" BorderPane.alignment="CENTER_RIGHT">
-         <padding><Insets top="0" right="10" bottom="0" left="0"/></padding>
-         <children>
-            <Label fx:id="username" text="Connected as &lt;Err&gt;" />
-         </children>
-      </HBox>
-   </bottom>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <InlineCssTextArea fx:id="chatlog" editable="false" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                <TextField fx:id="inputfield" prefHeight="25.0" prefWidth="297.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="60.0" />
+                <Button fx:id="inputbtn" mnemonicParsing="false" text="Send" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="10.0" />
+                <BorderPane fx:id="tabbar" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" prefHeight="30">
+                    <center>
+                        <HBox fx:id="tabbartabs" />
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </center>
+    <left>
+        <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <TitledPane text="Users">
+                    <content>
+                        <ListView fx:id="userlist"/>
+                    </content>
+                </TitledPane>
+                <TitledPane text="Files">
+                    <content>
+                        <ListView fx:id="filelist"/>
+                    </content>
+                </TitledPane>
+            </children>
+        </VBox>
+    </left>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" prefHeight="-Infinity" prefWidth="-Infinity" BorderPane.alignment="CENTER_RIGHT">
+            <children>
+                <Label fx:id="userstatus" text="Connected as &lt;Err&gt;" />
+            </children>
+        </HBox>
+    </bottom>
 </BorderPane>

@@ -10,9 +10,7 @@ public class Controller {
 	public InlineCssTextArea chatlog;
 
 	public void onInputBtnPressed() {
-		UIController.appendToChat("#FF0000", System.getProperty("user.name"));
-		UIController.appendToChat("#000000", ": " + inputfield.getText() + "\n");
-		
+		UserInputHandler.sendMsg(inputfield.getText());
 		inputfield.setText("");
 	}
 

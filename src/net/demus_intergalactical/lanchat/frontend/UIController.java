@@ -6,28 +6,43 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import org.fxmisc.richtext.InlineCssTextArea;
+import org.fxmisc.richtext.StyledDocument;
 
 public class UIController {
 
 	static InlineCssTextArea chatLog;
 	static TextField inputField;
+	static BorderPane tabBar;
+	static HBox tabBarTabs;
 	static ListView<BorderPane> userList;
 	static ListView<BorderPane> fileList;
-	static Label username;
+	static Label userStatus;
+	static String activeInstance;
 
 	public static void init(Parent root) {
 
 		Platform.runLater(() -> {
 			chatLog = (InlineCssTextArea) root.lookup("#chatlog");
 			inputField = (TextField) root.lookup("#inputfield");
+			tabBar = (BorderPane) root.lookup("#tabbar");
 			userList = (ListView<BorderPane>) root.lookup("#userlist");
 			fileList = (ListView<BorderPane>) root.lookup("#filelist");
-			username = (Label) root.lookup("#username");
+			userStatus = (Label) root.lookup("#userstatus");
+			tabBarTabs = (HBox) root.lookup("#tabbartabs");
 
 			chatLog.setWrapText(true);
-			username.setText("Connected as " + System.getProperty("user.name"));
+			userStatus.setText("Connected as " + System.getProperty("user.name"));
 		});
+	}
+
+	public static void addTab(ChatTab chattab) {
+		tabBarTabs.getChildren().add(chattab);
+	}
+
+	public static void removeTab(ChatTab chattab) {
+		tabBarTabs.getChildren().remove(chattab);
 	}
 
 	public static void appendToChat(String color, String text) {
@@ -36,6 +51,33 @@ public class UIController {
 			chatLog.appendText(text);
 			chatLog.setStyle(currlength, currlength + text.length(), "-fx-fill:" + color + ";");
 		});
+	}
+
+	public static void changeInstance(String instance) {
+		Platform.runLater(() -> {
+			if (activeInstance != null &&
+					activeInstance.equals(instance)) {
+				return;
+			}
+			if (activeInstance != null) {
+				ChatPool.get(activeInstance).setActive(false);
+				ChatPool.get(activeInstance).setInputBuf(inputField.getText());
+			}
+			ChatPool.get(instance).setActive(true);
+			activeInstance = instance;
+			ChatPool.get(instance).onActivated();
+		});
+	}
+
+	public static void updateChat(StyledDocument<String> consoleLog) {
+		Platform.runLater(() -> {
+			chatLog.clear();
+			chatLog.replace(consoleLog);
+		});
+	}
+
+	public static void updateInput(String inputBuf) {
+		Platform.runLater(() -> inputField.setText(inputBuf));
 	}
 
 }

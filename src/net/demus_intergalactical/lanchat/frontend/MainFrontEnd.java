@@ -36,6 +36,10 @@ public class MainFrontEnd extends Application {
 		});
 
 		UIController.init(root);
+
+		ChatInstance allchat = new ChatInstance();
+		allchat.init("All Chat", false);
+
 		primaryStage.show();
 	}
 
