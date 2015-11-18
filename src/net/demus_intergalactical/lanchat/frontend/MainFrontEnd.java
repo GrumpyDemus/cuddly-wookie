@@ -35,12 +35,17 @@ public class MainFrontEnd extends Application {
 			closeProgram();
 		});
 
-		UIController.init(root);
+		init(root);
 
 		ChatInstance allchat = new ChatInstance();
-		allchat.init("All Chat", false);
+		allchat.init("All Chat", true);
 
 		primaryStage.show();
+	}
+
+	private void init(Parent root) {
+		ChatPool.init();
+		UIController.init(root);
 	}
 
 	public void run(String... args) {

@@ -16,6 +16,7 @@ public class ChatInstance {
 
 	public void init(String name, boolean closable) {
 		chatTab = new ChatTab(name, closable);
+		ChatPool.set(name, this);
 		UIController.addTab(chatTab);
 	}
 
