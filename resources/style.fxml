@@ -31,8 +31,8 @@
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
                 <InlineCssTextArea fx:id="chatlog" editable="false" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                <TextField fx:id="inputfield" prefHeight="25.0" prefWidth="297.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="60.0" />
-                <Button fx:id="inputbtn" mnemonicParsing="false" text="Send" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="10.0" />
+                <TextField fx:id="inputfield" onKeyPressed="#onInputKeyPressed" prefHeight="25.0" prefWidth="297.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="60.0" />
+                <Button fx:id="inputbtn" onAction="#onInputBtnPressed" mnemonicParsing="false" text="Send" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="10.0" />
                 <BorderPane fx:id="tabbar" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" prefHeight="30">
                     <center>
                         <HBox fx:id="tabbartabs" />
