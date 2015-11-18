@@ -38,11 +38,13 @@ public class UIController {
 	}
 
 	public static void addTab(ChatTab chattab) {
-		tabBarTabs.getChildren().add(chattab);
+		Platform.runLater(() -> tabBarTabs.getChildren().add(chattab));
 	}
 
 	public static void removeTab(ChatTab chattab) {
-		tabBarTabs.getChildren().remove(chattab);
+		Platform.runLater(() ->
+			tabBarTabs.getChildren().remove(chattab)
+		);
 	}
 
 	public static void appendToChat(String color, String text) {
