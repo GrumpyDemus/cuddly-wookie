@@ -5,7 +5,7 @@
 <?scenebuilder-classpath-element richtextfx-fat-0.6.10.jar?>
 
 <?import org.fxmisc.richtext.InlineCssTextArea?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="580.0" stylesheets="@style.css" fx:controller="net.demus_intergalactical.lanchat.frontend.Controller" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>

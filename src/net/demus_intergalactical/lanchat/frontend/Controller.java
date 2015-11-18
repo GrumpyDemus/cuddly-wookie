@@ -7,11 +7,11 @@ import org.fxmisc.richtext.InlineCssTextArea;
 
 public class Controller {
 	public TextField inputfield;
-	public InlineCssTextArea chatlog;
 
 	public void onInputBtnPressed() {
-		UserInputHandler.sendMsg(inputfield.getText());
-		inputfield.setText("");
+		//UserInputHandler.sendMsg(inputfield.getText());
+		//inputfield.setText("");
+		UIController.clearInput();
 	}
 
 	public void onInputKeyPressed(KeyEvent ke) {

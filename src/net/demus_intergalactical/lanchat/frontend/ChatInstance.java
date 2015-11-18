@@ -20,7 +20,7 @@ public class ChatInstance {
 		UIController.addTab(chatTab);
 	}
 
-	public void appendToConsole(String color, String text) {
+	public void appendToChat(String color, String text) {
 		int currlength = chatLog.getText().length();
 		chatLog.appendText(text);
 		chatLog.setStyle(currlength, currlength + text.length(), "-fx-fill:" + color + ";");
@@ -30,8 +30,11 @@ public class ChatInstance {
 		}
 	}
 
+
+
 	public void setActive(boolean b) {
 		isActive = b;
+		chatTab.setActive(b);
 	}
 
 	public void onActivated() {
@@ -41,6 +44,10 @@ public class ChatInstance {
 
 	public void setInputBuf(String inputBuf) {
 		this.inputBuf = inputBuf;
+	}
+
+	public ChatTab getChatTab() {
+		return chatTab;
 	}
 
 }

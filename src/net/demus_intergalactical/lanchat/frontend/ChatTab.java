@@ -14,10 +14,15 @@ public class ChatTab extends BorderPane {
 
 		tabName.setText(name);
 		this.setCenter(tabName);
+		this.setId("tab");
 
 		if(closable) {
 			this.setRight(tabButton);
 		}
+
+		this.setOnMouseClicked(e -> {
+			UIController.changeInstance(name);
+		});
 
 		tabButton.setOnAction(e -> {
 			ChatInstance i = ChatPool.get(name);
@@ -26,5 +31,13 @@ public class ChatTab extends BorderPane {
 
 	public void getName() {
 		tabName.getText();
+	}
+
+	public void setActive(boolean b) {
+		if(b) {
+			this.setId("tabactive");
+		} else {
+			this.setId("tab");
+		}
 	}
 }

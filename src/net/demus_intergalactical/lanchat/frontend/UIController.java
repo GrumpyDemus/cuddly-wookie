@@ -64,11 +64,17 @@ public class UIController {
 			if (activeInstance != null) {
 				ChatPool.get(activeInstance).setActive(false);
 				ChatPool.get(activeInstance).setInputBuf(inputField.getText());
+				//ChatPool.get(activeInstance).getChatTab().setActive(false);
 			}
 			ChatPool.get(instance).setActive(true);
+			//ChatPool.get(instance).getChatTab().setActive(true);
 			activeInstance = instance;
 			ChatPool.get(instance).onActivated();
 		});
+	}
+
+	public static void setActiveInstance(String name) {
+		activeInstance = name;
 	}
 
 	public static void updateChat(StyledDocument<String> consoleLog) {
@@ -80,6 +86,14 @@ public class UIController {
 
 	public static void updateInput(String inputBuf) {
 		Platform.runLater(() -> inputField.setText(inputBuf));
+	}
+
+	public static String getActiveInstance() {
+		return activeInstance;
+	}
+
+	public static void clearInput() {
+		inputField.setText("");
 	}
 
 }
