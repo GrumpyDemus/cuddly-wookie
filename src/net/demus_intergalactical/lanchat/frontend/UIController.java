@@ -64,12 +64,21 @@ public class UIController {
 			if (activeInstance != null) {
 				ChatPool.get(activeInstance).setActive(false);
 				ChatPool.get(activeInstance).setInputBuf(inputField.getText());
-				//ChatPool.get(activeInstance).getChatTab().setActive(false);
 			}
 			ChatPool.get(instance).setActive(true);
-			//ChatPool.get(instance).getChatTab().setActive(true);
 			activeInstance = instance;
 			ChatPool.get(instance).onActivated();
+		});
+	}
+
+	public static void deleteInstance(String instance) {
+		Platform.runLater(() -> {
+			if (instance.equals(activeInstance)) {
+				ChatPool.get(activeInstance).setActive(false);
+				ChatPool.get("All Chat").setActive(true);
+				ChatPool.get("All Chat").onActivated();
+				activeInstance = "All Chat";
+			}
 		});
 	}
 

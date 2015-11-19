@@ -5,8 +5,8 @@ public class UserInputHandler {
 	static String username = System.getProperty("user.name");
 
 	public static void sendMsg(String msg) {
-		ChatPool.get(UIController.getActiveInstance()).appendToChat("#0000FF", username);
-		ChatPool.get(UIController.getActiveInstance()).appendToChat("#000000", msg);
+		ChatPool.get(UIController.getActiveInstance()).appendToChat("#FF0000", username);
+		ChatPool.get(UIController.getActiveInstance()).appendToChat("#000000", ": " + msg + "\n");
 	}
 
 	public static void receiveMsg(String msg, String user) {

@@ -9,9 +9,8 @@ public class Controller {
 	public TextField inputfield;
 
 	public void onInputBtnPressed() {
-		//UserInputHandler.sendMsg(inputfield.getText());
-		//inputfield.setText("");
-		UIController.clearInput();
+		UserInputHandler.sendMsg(inputfield.getText());
+		inputfield.setText("");
 	}
 
 	public void onInputKeyPressed(KeyEvent ke) {

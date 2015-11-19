@@ -1,6 +1,7 @@
 package net.demus_intergalactical.lanchat.frontend;
 
 
+import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -25,7 +26,9 @@ public class ChatTab extends BorderPane {
 		});
 
 		tabButton.setOnAction(e -> {
-			ChatInstance i = ChatPool.get(name);
+			UIController.deleteInstance(name);
+			ChatPool.remove(name);
+			UIController.removeTab(this);
 		});
 	}
 
